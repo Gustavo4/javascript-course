@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Launch index.html in Chrome",
+      "file": "${workspaceFolder}/index.html"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug JavaScript File",
+      "program": "${workspaceFolder}/${input:jsFileToDebug}"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "jsFileToDebug",
+      "type": "pickString",
+      "description": "Select the JavaScript file to debug",
+      "options": [
+        "exemple_calculatrice.js",
+        "exemple_function_recursive.js",
+        "exemple_try_catch_switch.js",
+        "exemple.js"
+      ]
+    }
+  ]
+}
