@@ -1,7 +1,7 @@
 let interval;
 let secondes = 9;
 let btn = document.querySelector("button");
-btn.addEventListener("click", start);
+btnNouveau.addEventListener("click", start);
 
 function start() {
     interval = setInterval(decompte, 1000);
