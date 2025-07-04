@@ -1,6 +1,6 @@
 const url = 'https://blockchain.info/ticker';
 
-// function recupererPrix() {
+function recupererPrix() {
 //   // Créer une requête HTTP GET
 //   let requete = new XMLHttpRequest();
 //   requete.open('GET', url);
@@ -22,15 +22,27 @@ const url = 'https://blockchain.info/ticker';
 //    }
 // }
 
-// setInterval(recupererPrix, 1000);
 
-const requete = await fetch(url, {
-  method: 'GET',
-});
+// const requete = await fetch(url, {
+  //   method: 'GET',
+// });
 
-if(!requete.ok) {
-  alert('Un problème est survenu');
-} else {
-  let donnees = await requete.json();
-  document.querySelector('#price_label').textContent = donnees.EUR.last;
-}
+// if(!requete.ok) {
+  //   alert('Un problème est survenu');
+  // } else {
+    //   let donnees = await requete.json();
+    //   document.querySelector('#price_label').textContent = donnees.EUR.last;
+    // }
+
+  axios.get(url)
+    .then(function (donnees) {
+      document.querySelector('span').textContent = donnees.data.EUR.last;
+    })
+    .catch(function (erreur) {
+      alert('Un problème est survenu');
+    })
+    .then(function () {
+      console.log('Prix actualisé');
+    });
+}  
+setInterval(recupererPrix, 1000);
